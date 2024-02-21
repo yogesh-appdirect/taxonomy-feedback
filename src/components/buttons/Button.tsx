@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { LucideIcon } from 'lucide-react';
 import * as React from 'react';
 import { IconType } from 'react-icons';
@@ -15,6 +16,7 @@ type ButtonProps = {
   size?: (typeof ButtonSize)[number];
   leftIcon?: IconType | LucideIcon;
   rightIcon?: IconType | LucideIcon;
+  fullWidth?: boolean;
   classNames?: {
     leftIcon?: string;
     rightIcon?: string;
@@ -28,6 +30,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       disabled: buttonDisabled,
       isLoading,
+      fullWidth = false,
       variant = 'primary',
       size = 'base',
       isDarkBg = false,
@@ -54,6 +57,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           [
             size === 'base' && ['px-3 py-1.5', 'text-sm md:text-base'],
             size === 'sm' && ['px-2 py-1', 'text-xs md:text-sm'],
+            fullWidth && ['w-full flex justify-center'],
           ],
           //#endregion  //*======== Size ===========
           //#region  //*=========== Variants ===========

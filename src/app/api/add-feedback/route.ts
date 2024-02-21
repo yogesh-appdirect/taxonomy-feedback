@@ -1,8 +1,8 @@
 /* eslint-disable no-useless-catch */
 import { GoogleAuth } from 'google-auth-library';
 import { google } from 'googleapis';
-import { NextApiRequest } from 'next';
-import { NextResponse } from 'next/server';
+// import { NextApiRequest } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 
 const auth = new GoogleAuth({
   scopes: 'https://www.googleapis.com/auth/spreadsheets',
@@ -35,7 +35,7 @@ async function addRecordsToSheet(records: Array<Array<string>>) {
   }
 }
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: Request | NextRequest) {
   const body = await req.json();
 
   const {

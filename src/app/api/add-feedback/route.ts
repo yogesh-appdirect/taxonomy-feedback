@@ -16,7 +16,7 @@ const auth = new GoogleAuth({
     client_id: process.env.GOOGLE_CLIENT_ID,
     client_email: process.env.GOOGLE_CLIENT_EMAIL,
     project_id: process.env.GOOGLE_PROJECT_ID,
-    private_key: privateKey,
+    private_key: decodedPrivateKey,
   },
 });
 

@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const base64EncodedPrivateKey = String(process.env.GOOGLE_PRIVATE_KEY);
 const decodedPrivateKey = Buffer.from(base64EncodedPrivateKey, 'base64').toString('utf-8');
-const privateKey = JSON.parse(decodedPrivateKey);
+const privateKey = JSON.stringify(decodedPrivateKey);
 
 
 const auth = new GoogleAuth({
